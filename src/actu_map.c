@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:00:24 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/07 20:32:18 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:31:20 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 void	actu_map(t_stock *slak, void *win_ptr)
 {

@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 12:38:22 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/19 16:58:57 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:35:02 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 void	free_map(char **map)
 {
@@ -50,6 +50,26 @@ int	check_map_sup(char **map, int len)
 	return (1);
 }
 
+void	place_joueur(char **map, int len)
+{
+	int		a;
+	int		b;
+
+	a = 0;
+	while (a < len)
+	{
+		b = 0;
+		while (map[a][b])
+		{
+			if (map[a][b] == 'N' || map[a][b] == 'S' || map[a][b] == 'W' || map[a][b] == 'E')
+				map[a][b] = 'P';
+			b++;
+		}
+		a++;
+	}
+	return ;
+}
+
 int	check_map(char *av)
 {
 	char	**map;
@@ -59,16 +79,18 @@ int	check_map(char *av)
 	if (!map)
 		return (0);
 	len = ft_count_words(map);
-	if (!check_lettre(map, len, 'C') || check_lettre(map, len, 'E') != 1
-		|| check_lettre(map, len, 'P') != 1)
-		return (0);
+	if (check_lettre(map, len, "NSEW") != 1)
+		return (printf("pas de position de joueur !"));
 	if (!check_lettre_plus(map, len))
-		return (0);
-	if (!check_map_sup(map, len))
-		return (0);
+		return (printf("caractere inconnu !"));
+	// if (!check_map_sup(map, len))			//si il y a des problem avec la map reactive ses deux ligne et fait une map carre.
+	// 	return (0);
+	place_joueur(map, len);
 	check_dir(map, col_cmp(map, 'P'), line_cmp(map, 'P'));
-	if (!find_obj(map, 'E') || check_lettre(map, len, 'C'))
-		return (0);
+	if (find_obj(map, ' '))
+		return (printf("il y a un trou dans la maps !"));
+	for (int i = 0; i < len; i++)
+		printf("%s", map[i]);
 	free_map(map);
 	printf("%s", av);
 	return (1);

@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:55:52 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/20 18:51:21 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:17 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 size_t	ft_count_words(char **map)
 {

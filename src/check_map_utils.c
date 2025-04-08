@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:12:27 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/20 18:45:16 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:31:16 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 int	check_wall_line(char *line, int num)
 {

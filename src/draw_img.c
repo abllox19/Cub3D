@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 22:37:26 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/17 20:16:58 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:57 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 void	draw_image(t_stock *slack, void *win_ptr, void *img, char target)
 {

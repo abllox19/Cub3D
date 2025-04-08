@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:07:02 by asoumare          #+#    #+#             */
-/*   Updated: 2024/09/23 19:45:41 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:48:07 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
+#ifndef CUB3D_H
 
-# define SO_LONG_H
+# define CUB3D_H
 
 # include <fcntl.h>
 # include <stdio.h>
@@ -75,7 +75,7 @@ int		cont_line(int fd);
 
 void	check_dir(char **map, int x, int c);
 int		find_obj(char **map, int obj);
-int		check_lettre(char **map, int len, char lettre);
+int		check_lettre(char **map, int len, char *lettre);
 void	free_map(char **map);
 
 /*      make map            */

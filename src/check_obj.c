@@ -6,13 +6,13 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:58:39 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/10 17:44:04 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:57:15 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
-int	check_lettre(char **map, int len, char lettre)
+int	check_lettre(char **map, int len, char *lettre)
 {
 	int		a;
 	int		b;
@@ -28,8 +28,11 @@ int	check_lettre(char **map, int len, char lettre)
 		while (map[a][b])
 		{
 			c = map[a][b];
-			if (c == lettre)
+			for (int i = 0; i < ft_strlen(lettre); i++)
+			{	
+				if (c == lettre[i])
 				cont += 1;
+			}
 			b++;
 		}
 		a++;
@@ -50,9 +53,12 @@ int	check_lettre_plus(char **map, int len)
 		while (map[a][b])
 		{
 			c = map[a][b];
-			if (c != 'P' && c != '1' && c != 'C'
+			if (c != '1' && c != 'C' && c != 'W' && c != 'S' && c != 'N' && c != ' '
 				&& c != 'E' && c != '0' && c != '\n')
-				return (0);
+			{
+				printf("%c", c);
+				return (0); 
+			}
 			b++;
 		}
 		a++;
@@ -96,12 +102,12 @@ int	find_obj(char **map, int obj)
 void	check_dir(char **map, int a, int b)
 {
 	map[a][b] = 'x';
-	if (map[a + 1][b] == '0' || map[a +1][b] == 'C')
+	if (map[a + 1][b] == '0')
 		check_dir(map, a + 1, b);
-	if (map[a - 1][b] == '0' || map[a -1][b] == 'C')
+	if (map[a - 1][b] == '0')
 		check_dir(map, a - 1, b);
-	if (map[a][b + 1] == '0' || map[a][b +1] == 'C')
+	if (map[a][b + 1] == '0')
 		check_dir(map, a, b + 1);
-	if (map[a][b - 1] == '0' || map[a][b +1] == 'C')
+	if (map[a][b - 1] == '0')
 		check_dir(map, a, b - 1);
 }

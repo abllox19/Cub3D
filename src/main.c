@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:47:24 by asoumare          #+#    #+#             */
-/*   Updated: 2025/01/10 23:15:54 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:33:59 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 int	init_slack(t_stock **slack, char *av)
 {
@@ -36,8 +36,8 @@ int	main(int ac, char **av)
 	while (av[1][i])
 		i++;
 	i -= 4;
-	if (av[1][i] == '.' && av[1][i +1] == 'b' &&
-			av[1][i +2] == 'e' && av[1][i +3] == 'r')
+	if (av[1][i] == '.' && av[1][i +1] == 'c' &&
+			av[1][i +2] == 'u' && av[1][i +3] == 'b')
 		sup_main(av[1]);
 	else
 		write(2, "error ficher non compatible\n", 27);
@@ -54,6 +54,14 @@ int	sup_main(char *av)
 		write(2, "Error\n", 6);
 		quit(slack);
 	}
+	printf("\n\nle code est bon.\n");
+	return (0);
+
+
+
+
+
+	
 	if (!init_slack(&slack, av))
 		return (1);
 	slack->mlx_ptr = mlx_init();

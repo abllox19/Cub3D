@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 11:12:40 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/07 20:31:06 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:35 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 void	make_air(t_stock *slack, void *win_ptr)
 {

@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 18:50:21 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/20 18:50:18 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:50 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 char	**init_map(char *av)
 {

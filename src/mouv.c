@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 20:57:00 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/07 20:17:40 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:24 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 void	mouv(t_stock *slack, char c)
 {

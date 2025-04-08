@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 18:36:56 by asoumare          #+#    #+#             */
-/*   Updated: 2024/06/10 18:33:46 by asoumare         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:30:46 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/cub3D.h"
 
 int	find_pnj(char **map, char c)
 {
