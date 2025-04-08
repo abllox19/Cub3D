@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:55:52 by asoumare          #+#    #+#             */
-/*   Updated: 2025/04/02 14:38:42 by asoumare         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:51:21 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cube.h"
+#include "../include/so_long.h"
 
 size_t	ft_count_words(char **map)
 {
@@ -65,24 +65,24 @@ int	line_cmp(char **map, int obj)
 	return (0);
 }
 
-// int	abscisses(char *av)
-// {
-// 	char	**map;
-// 	size_t	i;
+int	abscisses(char *av)
+{
+	char	**map;
+	size_t	i;
 
-// 	map = init_map(av);
-// 	i = ft_strlen(map[1]) - 1;
-// 	free_map(map);
-// 	return (i * 32);
-// }
+	map = init_map(av);
+	i = ft_strlen(map[1]) - 1;
+	free_map(map);
+	return (i * 32);
+}
 
-// int	ordonnee(char *av)
-// {
-// 	char	**map;
-// 	int		i;
+int	ordonnee(char *av)
+{
+	char	**map;
+	int		i;
 
-// 	map = init_map(av);
-// 	i = ft_count_words(map);
-// 	free_map(map);
-// 	return (i * 32);
-// }
+	map = init_map(av);
+	i = ft_count_words(map);
+	free_map(map);
+	return (i * 32);
+}

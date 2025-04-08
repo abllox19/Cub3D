@@ -1,53 +1,73 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/26 18:59:38 by asoumare          #+#    #+#              #
+#    Updated: 2024/09/24 19:08:36 by asoumare         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --suppressions=ignore.txt
-#VALGRIND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --suppressions=ignore.txt --track-fds=yes --trace-children=yes ./CUBE
-#test:
-#	$(VALGRIND) ./votre_executable
-CFLAGS  = -Wall -Wextra  -Werror
-LDFLAGS = -g3 -lreadline
+# Compiler and flags
+CC      = cc
+CFLAGS  = -g3 -Wall -Wextra -Werror
 
 # Paths
 SRC_PATH = src/
 OBJ_PATH = obj/
+MLX_PATH = minilibx-linux/
 LIBFT_PATH = libft/
 
 # Libraries and flags
+MLX     = ${MLX_PATH}libmlx.a
+LFLAGS  = -L${MLX_PATH} -lmlx -lXext -lX11
+IFLAGS  = -I${MLX_PATH}
 LIBFT = $(LIBFT_PATH)libft.a
 
-# Source files
-CUBE_SRC = main.c check_map.c check_map_utils.c utils.c check_obj.c
+# Source and object files
+SRC     = main.c \
+          actu_map.c \
+          check_map.c \
+          check_map_utils.c \
+          check_obj.c \
+          draw_img.c \
+          init_map.c \
+          key.c \
+          make_map.c \
+          mouv.c \
+          utils.c
 
-# Object files
-CUBE_OBJS = $(addprefix $(OBJ_PATH), $(CUBE_SRC:.c=.o))
+SRCS    = ${addprefix ${SRC_PATH}, ${SRC}}
+OBJS    = ${addprefix ${OBJ_PATH}, ${SRC:.c=.o}}
 
-
-CUBE_NAME = cub3D
+# Output
+NAME    = so_long
 
 # Rules
-all: $(LIBFT) $(CUBE_NAME)
+all: ${OBJ_PATH} ${LIBFT} ${NAME}
 
-# Build the binary
-$(CUBE_NAME): $(CUBE_OBJS) $(LIBFT)
-	$(MAKE) -C $(LIBFT_PATH)  # Compile libft if necessary
-	$(CC) $(CFLAGS) $(CUBE_OBJS) $(LIBFT) $(LDFLAGS) -o $(CUBE_NAME) -g3
+${OBJ_PATH}:
+	mkdir -p ${OBJ_PATH}
 
-# Build the object files
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir -p $(OBJ_PATH) # Create obj directory if it doesn't exist
-	$(CC) $(CFLAGS) -g3 -c $< -o $@
+${OBJ_PATH}%.o: ${SRC_PATH}%.c
+	${CC} ${CFLAGS} ${IFLAGS} -c $< -o $@
 
-# Build the libft library
-$(LIBFT):
-	$(MAKE) -C $(LIBFT_PATH)
+${NAME}: ${OBJS}
+	${MAKE} -C ${MLX_PATH}
+	${CC} ${OBJS} ${MLX} ${LIBFT} ${LFLAGS} -o ${NAME}
 
-# Cleaning rules
+${LIBFT}:
+	${MAKE} -C ${LIBFT_PATH}
+
 clean:
-	$(RM) -r $(OBJ_PATH)
-	$(MAKE) -C $(LIBFT_PATH) clean
+	${RM} ${OBJS}
+	${MAKE} -C ${LIBFT_PATH} ${OBJ_PATH} clean
 
 fclean: clean
-	$(RM) $(CUBE_NAME)
-	$(MAKE) -C $(LIBFT_PATH) fclean
+	${RM} ${NAME}
+	${MAKE} -C ${LIBFT_PATH} fclean
 
 re: fclean all
 

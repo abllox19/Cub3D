@@ -6,11 +6,11 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:58:39 by asoumare          #+#    #+#             */
-/*   Updated: 2025/04/02 14:34:54 by asoumare         ###   ########.fr       */
+/*   Updated: 2024/06/10 17:44:04 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cube.h"
+#include "../include/so_long.h"
 
 int	check_lettre(char **map, int len, char lettre)
 {

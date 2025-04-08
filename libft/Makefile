@@ -3,57 +3,58 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+         #
+#    By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/10 19:11:13 by asoumare          #+#    #+#              #
-#    Updated: 2025/02/25 13:15:54 by idioumas         ###   ########.fr        #
+#    Updated: 2024/09/23 19:47:58 by asoumare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Nom de la bibliothèque
-NAME = libft.a
+LIBC =	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
+		ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c \
+		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c \
+		ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
+		ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c \
+		get_next_line.c get_next_line_utils.c
 
-# Compilateur et options
+ADDITIONAL =	ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
+				ft_split.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_substr.c ft_striteri.c
+
+BONUS =	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+		ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+		ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+		
+SRCS = ${LIBC} ${ADDITIONAL}
+
+SRCSALL = ${LIBC} ${ADDITIONAL} ${BONUS}
+
+OBJS = ${SRCS:.c=.o}
+
+OBJSALL = ${SRCSALL:.c=.o}
+
+LIB = libft.a
+
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g3 -fPIC
-AR = ar rcs
 
-# Sources et objets
-SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-       ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c \
-       ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c \
-       ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
-       ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c \
-       get_next_line.c get_next_line_utils.c \
-       ft_print_hex.c ft_print_ptr.c ft_print_unsigned.c ft_printf_utils.c ft_printf.c \
-       ft_itoa.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-       ft_split.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_substr.c ft_striteri.c \
-       ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
-       ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
-       ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c ft_atol.c
+CFLAGS = -Wall -Werror -Wextra 
 
-OBJS = $(SRCS:.c=.o)
+.c.o:
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-# Règle principale : compilation de la bibliothèque
-$(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+${LIB}:	${OBJS}
+		ar -rsc ${LIB} ${OBJS}
 
-# Compilation des fichiers .c en .o
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+bonus:	${OBJSALL}
+		ar -rsc ${LIB} ${OBJSALL}
 
-# Commande principale pour tout compiler
-make: $(NAME)
+all: 	${LIB}
 
-# Nettoyage des fichiers objets
-clean:
-	rm -f $(OBJS)
+clean:	
+		rm -f ${OBJSALL}
 
-# Nettoyage complet (y compris la bibliothèque)
-fclean: clean
-	rm -f $(NAME)
+fclean:	clean;
+		rm -f ${LIB}
 
-# Recompilation complète
-re: fclean make
+re:	fclean all
 
-.PHONY: make clean fclean re
+.PHONY: all clean fclean re

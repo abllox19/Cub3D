@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idioumas <idioumas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 11:09:07 by asoumare          #+#    #+#             */
-/*   Updated: 2025/02/25 13:14:35 by idioumas         ###   ########.fr       */
+/*   Updated: 2024/09/24 19:24:40 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include <limits.h>
 
 typedef struct s_list
 {
@@ -36,7 +33,6 @@ typedef struct s_list
 /*		libft		*/
 
 int					ft_atoi(const char *str);
-long				ft_atol(const char *str);
 void				*ft_bzero(void *b, size_t len);
 void				*ft_calloc(size_t count, size_t size);
 int					ft_isalnum(int c);
@@ -97,26 +93,5 @@ void				polish_list(t_list **list);
 char				*get_next_line(int fd);
 void				dealloc(t_list **list, t_list *clean_node, char *buf);
 void				create_list(t_list **list, int fd);
-
-/*		print	*/
-
-int					ft_printf(const char *format, ...);
-int					ft_formats(va_list args, const char format);
-
-int					ft_print_c(int c);
-int					ft_print_str(char *str);
-int					ft_print_ptr(unsigned long long ptr);
-int					ft_print_nbr(int n);
-int					ft_print_unsigned(unsigned int n);
-int					ft_print_hex(unsigned int num, const char format);
-int					ft_print_pour(void);
-
-void				ft_put_str(char *str);
-void				ft_put_ptr(uintptr_t num);
-int					ft_ptr_len(uintptr_t num);
-int					ft_num_len(unsigned	int num);
-void				ft_put_hex(unsigned int num, const char format);
-int					ft_hex_len(unsigned	int num);
-char				*ft_uitoa(unsigned int n);
 
 #endif

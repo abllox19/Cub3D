@@ -6,11 +6,23 @@
 /*   By: asoumare <asoumare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:22:43 by asoumare          #+#    #+#             */
-/*   Updated: 2024/11/13 20:20:47 by asoumare         ###   ########.fr       */
+/*   Updated: 2024/09/23 19:47:26 by asoumare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	ft_strlen(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
